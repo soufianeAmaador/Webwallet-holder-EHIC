@@ -1,0 +1,184 @@
+
+<body>
+<div class="bg vh-100 pt-xxl-5 ">
+  <div class="pt-xxl-5 h-75 w-50 mx-auto">
+    <div class=" card w-25 h-50 mx-auto w-75 h-100" style="opacity: 90%">
+      <div class="card-header">
+        <h1 class="card-title text-primary">{{this.title}}</h1>
+      </div>
+      <form class="card-body tab-content">
+        <ul class="nav nav-tabs card-header-tabs h-auto"  ngbNav #nav="ngbNav" [(activeId)]="active">
+          <!-- my credentials list -->
+          <li [ngbNavItem]="1">
+            <ng-template ngbNavContent>
+              <div class="row scroll">
+                <div class="col pt-2 " *ngFor="let credential of credentialList">
+                  <div class="card bg-light border border-primary rounded px-1" >
+                    <h5 class="text-primary pt-1">
+                      {{credential.type[credential.type.length-1]}}
+                      <br>
+                      <a href="javascript:void(0);" (click)="viewCredential(credential)" class="stretched-link"></a>
+                      <br>
+                      <small class="text-muted">by {{(credential.issuer)}}</small>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <!-- request credentials -->
+          <li [ngbNavItem]="2">
+            <ng-template ngbNavContent>
+              <div class="container scroll">
+                <div class="row">
+                  <h6>Title</h6>
+                  <h6> <small class="text-muted">{{this.credential.type[this.credential.type.length-1]}}</small></h6>
+                </div>
+                <div class="row">
+                  <div class="col-8">
+                    <h6>Issuer</h6>
+                    <h6> <small class="text-muted">{{this.credential.issuer}}</small></h6>
+                  </div>
+                  <div class="col-2">
+                    <h6>Status</h6>
+                    <h6> <small class="text-muted">Valid</small></h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <h6>Issued on</h6>
+                    <h6><small class="text-muted">{{this.credential.issued}}</small></h6>
+                  </div>
+                  <div class="col">
+                    <h6>Expire</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.expiryDate}}</small></h6>
+                  </div>
+                  <div class="col">
+                    <h6>Valid from</h6>
+                    <h6><small class="text-muted">{{this.credential.validFrom}}</small></h6>
+                  </div>
+                </div>
+                <div class="col">
+                  <h6>DID</h6>
+                  <h6><small class="text-muted">{{this.credential.id}}</small></h6>
+                </div>
+                <hr class="hr hr-blurry" />
+                <div *ngIf="this.credential.type[this.credential.type.length-1] == 'EuropeanHealthInsuranceCard'">
+                  <div class="row">
+                    <div class="col">
+                      <h6>First name</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.name}}</small></h6>
+                    </div>
+                    <div class="col">
+                      <h6>Last name</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.givenNames}}</small></h6>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h6>Date of Birth</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.dateOfBirth}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <h6>Adress</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.address.postcode}}</small></h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.address.street}} {{this.credential.credentialSubject.address.houseNumber}}</small></h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.address.municipality}}</small></h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.address.country}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h6>Telephone</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.telephone.phoneNumber}}</small></h6>
+                    </div>
+                    <div class="col">
+                      <h6>Type</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.telephone.numberType}}</small></h6>
+                    </div>
+                  </div>
+                  <hr class="hr hr-blurry" />
+                  <div class="row">
+                    <h6>Card Identification Number</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.identificationNumberOfTheCard}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <h6>Institution Identification Number</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.identificationNumberOfTheCard}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <h6>Polis Number</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.polisNumber}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h6>Start date</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.insurance.startDate}}</small></h6>
+                    </div>
+                    <div class="col">
+                      <h6>End date</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.insurance.endDate}}</small></h6>
+                    </div>
+                    <div class="col">
+                      <h6>Type</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.insurance.insuranceType}}</small></h6>
+                    </div>
+                  </div>
+                  <hr class="hr hr-blurry" />
+                  <div class="row">
+                    <h6>Insurer</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.organisationName}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <h6>Adress</h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.address.postcode}}</small></h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.address.street}} {{this.credential.credentialSubject.address.houseNumber}}</small></h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.address.municipality}}</small></h6>
+                    <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.address.country}}</small></h6>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h6>Telephone</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.telephone.phoneNumber}}</small></h6>
+                    </div>
+                    <div class="col">
+                      <h6>Type</h6>
+                      <h6><small class="text-muted">{{this.credential.credentialSubject.insurer.telephone.numberType}}</small></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="position-absolute start-0 bottom-0">
+                <a class="btn-outline-primary btn" (click)="changeTab()">Credentials</a>
+
+              </div>
+            </ng-template>
+          </li>
+          <!-- credential details -->
+          <li [ngbNavItem]="3" >
+            <ng-template ngbNavContent>
+              <div class="row">
+                <h4>Click "Accept" to add the credential to your wallet</h4>
+                <h5>
+                  {{this.sessionInfo.credentialTypes[this.sessionInfo.credentialTypes.length-1]}}
+                  <small class="text-muted">by: {{(this.did)? this.did : 'null'}}</small>
+                </h5>
+              </div>
+              <div class="row d-flex justify-content-center align-content-center pt-2">
+                <a class="btn btn-primary w-50" (click)="receiveCredential()">Accept</a>
+              </div>
+              <div class="row d-flex justify-content-center align-content-center pt-1">
+                <a class="btn btn-danger w-50" (click)="declineCredential()">Decline</a>
+              </div>
+
+            </ng-template>
+          </li>
+          <!-- confirm request -->
+
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+<!--        <pre>Active: {{ active }}</pre>-->
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+

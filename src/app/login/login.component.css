@@ -1,0 +1,24 @@
+body, html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.wallet-logo{
+  height: 80px;
+  width: 80px;
+}
+.wallet-name {
+  color: cornflowerblue;
+}
+
+.bg {
+  /* The image used */
+  background-image: url('src/assets/Background_temp.jpg');
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
