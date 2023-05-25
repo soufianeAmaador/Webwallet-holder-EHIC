@@ -39,6 +39,7 @@ With this <b>session ID</b>, the wallet portal is able to retrieve the details o
 
 After clicking 'Accept', an OpenID-based OIDC4SSI/SIOP information exchange protocol starts.
 ![image](https://github.com/soufianeAmaador/Webwallet-holder-EHIC/assets/70653226/67304246-1994-4946-929f-7fa9d9c27bab)
+
 The wallet backend then communicates with the issuer backend to receive the verifiable credential that completes the issuance process (see image below for a high-level overview of the issuer-initiated exchange process):
 ![issuer-initiated exchange process](https://github.com/soufianeAmaador/Webwallet-holder-EHIC/assets/70653226/092391a3-321a-481b-9fad-7ebe0c352ccf)
 
