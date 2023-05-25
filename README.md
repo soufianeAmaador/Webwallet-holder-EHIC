@@ -29,7 +29,7 @@ http://localhost:8080/api/siop/initiateIssuance/
 After <b>activating</b> this link, a request is sent from the issuer to the backend of the holder's wallet. In the backend, the <b>pre-authorized code</b> is exchanged for an <b>access token</b> on the issuer's <b>token endpoint</b> to retrieve the credentials. This streamlines the user experience. The issuer can choose to make the issue even more secure by setting and requiring a user PIN before receiving the <b>verifiable credential</b>. The obtained <b>access token</b> is then used to request the issuance of the verifiable credential from the issuer's authentication endpoint. The webwallet must include appropriate <b>proof of possession</b> of the key material to which the credential is bound with the request. Once approved, the issuance process starts where the backend wallet starts an “issuer-initiated issuance” session with the response from the issuer, which is presented to the front-end by means of a <b>session Id</b>:
 
 `
-http://localhost:/wallet/?sessionId=1665cb2f-76f8-48b1-86d7-c48c5a43510b
+http://localhost:4201/wallet/?sessionId=1665cb2f-76f8-48b1-86d7-c48c5a43510b
 `
 
 ![Retrieval session information](https://github.com/soufianeAmaador/Webwallet-holder-EHIC/assets/70653226/752ed226-3576-49b3-a39d-9368d7969d11)
