@@ -11,7 +11,7 @@ Open the terminal in the Angular application and run the following command:
 
 `ng serve`
 
-The webportal will be available at `http://localhost:4200/`
+The webportal will be available at `http://localhost:4201/`
 
 # How it works
 The application starts with a user requesting a European Health Insurance Card in the form of a Verifiable Credential from the [insurance webportal](https://github.com/soufianeAmaador/Webportal-Issuer-EHIC). This starts an exchange session. 
