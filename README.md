@@ -62,3 +62,6 @@ During the generation of the verifiable credential, the European Health Insuranc
 "type" : "EuropeanHealthInsuranceCard"
 }
 ```
+
+![Signature](https://github.com/soufianeAmaador/Webwallet-holder-EHIC/assets/70653226/701ee469-9873-465c-8f75-859f03dd200e)
+
